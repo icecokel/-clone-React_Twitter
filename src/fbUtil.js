@@ -1,4 +1,5 @@
 import firebase from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 const {
   REACT_APP_FIREBASE_APP_KEY,
