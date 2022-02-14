@@ -23,20 +23,16 @@ const Auth = () => {
     event.preventDefault();
 
     try {
-      // 게정 파라미터 형태 { email : string , password : string }
       let data = "";
       if (newAccount) {
         // Create Account
-        data = await authService.createUserWithEmailAndPassword({
+        data = await authService.createUserWithEmailAndPassword(
           email,
-          password,
-        });
+          password
+        );
       } else {
         // Log in
-        data = await authService.signInWithEmailAndPassword({
-          email,
-          password,
-        });
+        data = await authService.signInWithEmailAndPassword(email, password);
       }
       console.log(data);
     } catch (error) {

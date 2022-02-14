@@ -25,19 +25,14 @@ const firebaseConfig = {
   measurementId: REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
+console.log(process.env);
 const app = initializeApp(firebaseConfig);
 export const authService = {
-  getAuth: getAuth(),
-  createUserWithEmailAndPassword: ({ email, password }) =>
-    createUserWithEmailAndPassword({
-      email,
-      password,
-    }),
-  signInWithEmailAndPassword: ({ email, password }) =>
-    signInWithEmailAndPassword({
-      email,
-      password,
-    }),
+  getAuth: async () => await getAuth(),
+  createUserWithEmailAndPassword: async (email, password) =>
+    await createUserWithEmailAndPassword(getAuth(), email, password),
+  signInWithEmailAndPassword: async (email, password) =>
+    await signInWithEmailAndPassword(email, password),
 };
 
 export default app;
